@@ -1,0 +1,426 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D01697AD2BE8EBCC0096108C /* NearTalkApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01697AC2BE8EBCC0096108C /* NearTalkApp.swift */; };
+		D01697AF2BE8EBCC0096108C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01697AE2BE8EBCC0096108C /* ContentView.swift */; };
+		D01697B12BE8EBCD0096108C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D01697B02BE8EBCD0096108C /* Assets.xcassets */; };
+		D01697B52BE8EBCD0096108C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D01697B42BE8EBCD0096108C /* Preview Assets.xcassets */; };
+		D01697BD2BE8EE190096108C /* AddBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01697BC2BE8EE190096108C /* AddBorder.swift */; };
+		D01697C02BE8F4000096108C /* ChatSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01697BF2BE8F4000096108C /* ChatSession.swift */; };
+		D01697C32BE8F8BC0096108C /* PairView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01697C22BE8F8BC0096108C /* PairView.swift */; };
+		D021AAE22BEBAD2A00B66833 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = D021AAE12BEBAD2A00B66833 /* Message.swift */; };
+		D071974F2BEA3D99004031C8 /* SigninView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D071974E2BEA3D99004031C8 /* SigninView.swift */; };
+		D07197512BEA4685004031C8 /* AvailableUsersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07197502BEA4685004031C8 /* AvailableUsersView.swift */; };
+		D07197532BEA8E21004031C8 /* ConversationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07197522BEA8E21004031C8 /* ConversationView.swift */; };
+		D07197572BEB5019004031C8 /* ComposerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07197562BEB5019004031C8 /* ComposerView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		D01697A92BE8EBCC0096108C /* NearTalk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NearTalk.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D01697AC2BE8EBCC0096108C /* NearTalkApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearTalkApp.swift; sourceTree = "<group>"; };
+		D01697AE2BE8EBCC0096108C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		D01697B02BE8EBCD0096108C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D01697B22BE8EBCD0096108C /* NearTalk.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NearTalk.entitlements; sourceTree = "<group>"; };
+		D01697B42BE8EBCD0096108C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		D01697BC2BE8EE190096108C /* AddBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBorder.swift; sourceTree = "<group>"; };
+		D01697BF2BE8F4000096108C /* ChatSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatSession.swift; sourceTree = "<group>"; };
+		D01697C22BE8F8BC0096108C /* PairView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairView.swift; sourceTree = "<group>"; };
+		D01697C62BE8FA140096108C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		D021AAE12BEBAD2A00B66833 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		D071974E2BEA3D99004031C8 /* SigninView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninView.swift; sourceTree = "<group>"; };
+		D07197502BEA4685004031C8 /* AvailableUsersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableUsersView.swift; sourceTree = "<group>"; };
+		D07197522BEA8E21004031C8 /* ConversationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationView.swift; sourceTree = "<group>"; };
+		D07197562BEB5019004031C8 /* ComposerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposerView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D01697A62BE8EBCC0096108C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D01697A02BE8EBCC0096108C = {
+			isa = PBXGroup;
+			children = (
+				D01697AB2BE8EBCC0096108C /* NearTalk */,
+				D01697AA2BE8EBCC0096108C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D01697AA2BE8EBCC0096108C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D01697A92BE8EBCC0096108C /* NearTalk.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D01697AB2BE8EBCC0096108C /* NearTalk */ = {
+			isa = PBXGroup;
+			children = (
+				D021AAE02BEBACFB00B66833 /* Models */,
+				D01697C62BE8FA140096108C /* Info.plist */,
+				D01697C12BE8F8B00096108C /* Views */,
+				D01697BB2BE8EE010096108C /* Extensions */,
+				D01697AC2BE8EBCC0096108C /* NearTalkApp.swift */,
+				D01697AE2BE8EBCC0096108C /* ContentView.swift */,
+				D01697B02BE8EBCD0096108C /* Assets.xcassets */,
+				D01697B22BE8EBCD0096108C /* NearTalk.entitlements */,
+				D01697B32BE8EBCD0096108C /* Preview Content */,
+				D01697BF2BE8F4000096108C /* ChatSession.swift */,
+			);
+			path = NearTalk;
+			sourceTree = "<group>";
+		};
+		D01697B32BE8EBCD0096108C /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				D01697B42BE8EBCD0096108C /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		D01697BB2BE8EE010096108C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D01697BC2BE8EE190096108C /* AddBorder.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		D01697C12BE8F8B00096108C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D01697C22BE8F8BC0096108C /* PairView.swift */,
+				D071974E2BEA3D99004031C8 /* SigninView.swift */,
+				D07197502BEA4685004031C8 /* AvailableUsersView.swift */,
+				D07197522BEA8E21004031C8 /* ConversationView.swift */,
+				D07197562BEB5019004031C8 /* ComposerView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		D021AAE02BEBACFB00B66833 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D021AAE12BEBAD2A00B66833 /* Message.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D01697A82BE8EBCC0096108C /* NearTalk */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D01697B82BE8EBCD0096108C /* Build configuration list for PBXNativeTarget "NearTalk" */;
+			buildPhases = (
+				D01697A52BE8EBCC0096108C /* Sources */,
+				D01697A62BE8EBCC0096108C /* Frameworks */,
+				D01697A72BE8EBCC0096108C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NearTalk;
+			productName = NearTalk;
+			productReference = D01697A92BE8EBCC0096108C /* NearTalk.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D01697A12BE8EBCC0096108C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1520;
+				LastUpgradeCheck = 1520;
+				TargetAttributes = {
+					D01697A82BE8EBCC0096108C = {
+						CreatedOnToolsVersion = 15.2;
+					};
+				};
+			};
+			buildConfigurationList = D01697A42BE8EBCC0096108C /* Build configuration list for PBXProject "NearTalk" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D01697A02BE8EBCC0096108C;
+			productRefGroup = D01697AA2BE8EBCC0096108C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D01697A82BE8EBCC0096108C /* NearTalk */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D01697A72BE8EBCC0096108C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D01697B52BE8EBCD0096108C /* Preview Assets.xcassets in Resources */,
+				D01697B12BE8EBCD0096108C /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D01697A52BE8EBCC0096108C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D01697C32BE8F8BC0096108C /* PairView.swift in Sources */,
+				D07197512BEA4685004031C8 /* AvailableUsersView.swift in Sources */,
+				D01697C02BE8F4000096108C /* ChatSession.swift in Sources */,
+				D071974F2BEA3D99004031C8 /* SigninView.swift in Sources */,
+				D01697AF2BE8EBCC0096108C /* ContentView.swift in Sources */,
+				D01697BD2BE8EE190096108C /* AddBorder.swift in Sources */,
+				D01697AD2BE8EBCC0096108C /* NearTalkApp.swift in Sources */,
+				D021AAE22BEBAD2A00B66833 /* Message.swift in Sources */,
+				D07197532BEA8E21004031C8 /* ConversationView.swift in Sources */,
+				D07197572BEB5019004031C8 /* ComposerView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		D01697B62BE8EBCD0096108C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D01697B72BE8EBCD0096108C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		D01697B92BE8EBCD0096108C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = NearTalk/NearTalk.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"NearTalk/Preview Content\"";
+				DEVELOPMENT_TEAM = UL69KA454U;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NearTalk/Info.plist;
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "NearTalk needs to access the local network to find nearby users.";
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 14.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.justinchester.NearTalk;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D01697BA2BE8EBCD0096108C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = NearTalk/NearTalk.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"NearTalk/Preview Content\"";
+				DEVELOPMENT_TEAM = UL69KA454U;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NearTalk/Info.plist;
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "NearTalk needs to access the local network to find nearby users.";
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 14.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.justinchester.NearTalk;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D01697A42BE8EBCC0096108C /* Build configuration list for PBXProject "NearTalk" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D01697B62BE8EBCD0096108C /* Debug */,
+				D01697B72BE8EBCD0096108C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D01697B82BE8EBCD0096108C /* Build configuration list for PBXNativeTarget "NearTalk" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D01697B92BE8EBCD0096108C /* Debug */,
+				D01697BA2BE8EBCD0096108C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D01697A12BE8EBCC0096108C /* Project object */;
+}
