@@ -13,8 +13,10 @@ struct ComposerView: View {
             }
             .addBorder(.gray, width: 0.5, cornerRadius: 15)
             Button {
-                sendMessageHandler()
-                messageText = ""
+                withAnimation {
+                    sendMessageHandler()
+                    messageText = ""
+                }
             } label: {
                 Image(systemName: "arrow.up.circle.fill")
                     .font(.title)

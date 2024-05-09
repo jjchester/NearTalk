@@ -14,8 +14,8 @@
             filePath = "NearTalk/ChatSession.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "132"
-            endingLineNumber = "132"
+            startingLineNumber = "153"
+            endingLineNumber = "153"
             landmarkName = "session(_:didReceive:fromPeer:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -30,8 +30,8 @@
             filePath = "NearTalk/ChatSession.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "143"
-            endingLineNumber = "143"
+            startingLineNumber = "164"
+            endingLineNumber = "164"
             landmarkName = "session(_:didReceive:fromPeer:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -158,8 +158,8 @@
             filePath = "NearTalk/ChatSession.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "194"
-            endingLineNumber = "194"
+            startingLineNumber = "216"
+            endingLineNumber = "216"
             landmarkName = "advertiser(_:didReceiveInvitationFromPeer:withContext:invitationHandler:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -190,8 +190,8 @@
             filePath = "NearTalk/ChatSession.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "117"
-            endingLineNumber = "117"
+            startingLineNumber = "138"
+            endingLineNumber = "138"
             landmarkName = "session(_:peer:didChange:)"
             landmarkType = "7">
             <Locations>
@@ -224,6 +224,84 @@
                   startingLineNumber = "130"
                   endingLineNumber = "130"
                   offsetFromSymbolStart = "68">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "21FE47BD-B527-4987-9D91-5B28634E4A68"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NearTalk/ChatSession.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "91"
+            endingLineNumber = "91"
+            landmarkName = "sendMessage(message:receivingPeer:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "21FE47BD-B527-4987-9D91-5B28634E4A68 - a7dfba11676128cb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NearTalk.ChatSession.sendMessage(message: Swift.String, receivingPeer: __C.MCPeerID) -&gt; ()"
+                  moduleName = "NearTalk"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/justin/Workspace/iOS/NearTalk/NearTalk/ChatSession.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "91"
+                  endingLineNumber = "91"
+                  offsetFromSymbolStart = "2252">
+               </Location>
+               <Location
+                  uuid = "21FE47BD-B527-4987-9D91-5B28634E4A68 - a7dfba11676128cb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NearTalk.ChatSession.sendMessage(message: Swift.String, receivingPeer: __C.MCPeerID) -&gt; ()"
+                  moduleName = "NearTalk"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/justin/Workspace/iOS/NearTalk/NearTalk/ChatSession.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "91"
+                  endingLineNumber = "91"
+                  offsetFromSymbolStart = "2204">
+               </Location>
+               <Location
+                  uuid = "21FE47BD-B527-4987-9D91-5B28634E4A68 - a7dfba11676128cb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NearTalk.ChatSession.sendMessage(message: Swift.String, receivingPeer: __C.MCPeerID) -&gt; ()"
+                  moduleName = "NearTalk"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/justin/Workspace/iOS/NearTalk/NearTalk/ChatSession.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "91"
+                  endingLineNumber = "91"
+                  offsetFromSymbolStart = "2268">
+               </Location>
+               <Location
+                  uuid = "21FE47BD-B527-4987-9D91-5B28634E4A68 - a7dfba11676128cb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NearTalk.ChatSession.sendMessage(message: Swift.String, receivingPeer: __C.MCPeerID) -&gt; ()"
+                  moduleName = "NearTalk"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/justin/Workspace/iOS/NearTalk/NearTalk/ChatSession.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "91"
+                  endingLineNumber = "91"
+                  offsetFromSymbolStart = "2464">
                </Location>
             </Locations>
          </BreakpointContent>

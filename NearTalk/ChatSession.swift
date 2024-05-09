@@ -11,7 +11,7 @@ import MultipeerConnectivity
 class ChatSession: NSObject, ObservableObject {
     public static let shared = ChatSession()
     private let serviceType = "neartalk"
-    private lazy var peerID = MCPeerID(displayName: username)
+    public lazy var peerID = MCPeerID(displayName: username)
     private var knownPeers: [MCPeerID] = []
 
     private var username: String = ""
@@ -43,7 +43,7 @@ class ChatSession: NSObject, ObservableObject {
     @Published var recvdInviteFrom: MCPeerID? = nil
     @Published var paired: Bool = false
     @Published var invitationHandler: ((Bool, MCSession?) -> Void)?
-    @Published var conversations: [MCPeerID: [Message]] = [:]
+    @Published var conversations: [MCPeerID: [ConversationMessage]] = [:]
     
     public func setup(username: String) {
         self.username = username
@@ -69,7 +69,7 @@ class ChatSession: NSObject, ObservableObject {
         }
     }
     
-    private override init() {
+    public override init() {
         super.init()
     }
     
@@ -78,7 +78,7 @@ class ChatSession: NSObject, ObservableObject {
         serviceBrowser.stopBrowsingForPeers()
     }
     
-    func sendMessage(message: String, receivingPeer: [MCPeerID]) {
+    func sendMessage(message: String, receivingPeer: MCPeerID) {
         if self.connectedPeers.contains(receivingPeer) {
             do {
                 let payload = Message(
@@ -89,12 +89,33 @@ class ChatSession: NSObject, ObservableObject {
                     type: .text
                 )
                 let payloadData = try! JSONEncoder().encode(payload)
-                try session.send(payloadData, toPeers: receivingPeer, with: .reliable)
+                try session.send(payloadData, toPeers: [receivingPeer], with: .reliable)
+                DispatchQueue.main.async {
+                    self.conversations[receivingPeer, default: []].append(ConversationMessage(message: payload, status: .pending))
+                }
             } catch {
                 print("Error sending message")
             }
         }
     }
+    
+    func updateMessageStatus(peerID: MCPeerID, messageID: String, newStatus: ConversationMessage.Status) {
+         guard var conversation = conversations[peerID] else {
+             // Peer not found in conversations dictionary
+             return
+         }
+         
+         // Find the ConversationMessage with the specified message ID
+         if let index = conversation.firstIndex(where: { $0.message.uniqueID == messageID }) {
+             DispatchQueue.main.async {
+                 // Update the status of the ConversationMessage
+                 conversation[index].setStatus(status: newStatus)
+                 
+                 // Update the conversations dictionary
+                 self.conversations[peerID] = conversation
+             }
+         }
+     }
 }
 
 extension ChatSession: MCSessionDelegate {
@@ -137,7 +158,7 @@ extension ChatSession: MCSessionDelegate {
                 print("Received text message from \(senderPeerID.displayName): \(message.content)")
                 
                 DispatchQueue.main.async {
-                    self.conversations[peerID, default: []].append(message)
+                    self.conversations[peerID, default: []].append(ConversationMessage(message: message, status: .acknowledged))
                 }
                 // Send acknowledgement message
                 sendAcknowledgementMessage(to: senderPeerID, forMessage: message.uniqueID)
@@ -145,6 +166,7 @@ extension ChatSession: MCSessionDelegate {
                 // Handle media message
                 break
             case .acknowledgement:
+                updateMessageStatus(peerID: peerID, messageID: message.content, newStatus: .acknowledged)
                 print("Received acknowledgement for message: \(message.content)")
             }
         } else {

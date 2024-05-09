@@ -15,6 +15,9 @@
 		D01697C02BE8F4000096108C /* ChatSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01697BF2BE8F4000096108C /* ChatSession.swift */; };
 		D01697C32BE8F8BC0096108C /* PairView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01697C22BE8F8BC0096108C /* PairView.swift */; };
 		D021AAE22BEBAD2A00B66833 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = D021AAE12BEBAD2A00B66833 /* Message.swift */; };
+		D021AAE42BEBBC6600B66833 /* MessageBubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = D021AAE32BEBBC6600B66833 /* MessageBubble.swift */; };
+		D021AAE72BECD21C00B66833 /* MCPeerIDDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D021AAE62BECD21C00B66833 /* MCPeerIDDecoder.swift */; };
+		D021AAE92BECD30200B66833 /* DecodeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D021AAE82BECD30200B66833 /* DecodeError.swift */; };
 		D071974F2BEA3D99004031C8 /* SigninView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D071974E2BEA3D99004031C8 /* SigninView.swift */; };
 		D07197512BEA4685004031C8 /* AvailableUsersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07197502BEA4685004031C8 /* AvailableUsersView.swift */; };
 		D07197532BEA8E21004031C8 /* ConversationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07197522BEA8E21004031C8 /* ConversationView.swift */; };
@@ -33,6 +36,9 @@
 		D01697C22BE8F8BC0096108C /* PairView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairView.swift; sourceTree = "<group>"; };
 		D01697C62BE8FA140096108C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		D021AAE12BEBAD2A00B66833 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		D021AAE32BEBBC6600B66833 /* MessageBubble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageBubble.swift; sourceTree = "<group>"; };
+		D021AAE62BECD21C00B66833 /* MCPeerIDDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCPeerIDDecoder.swift; sourceTree = "<group>"; };
+		D021AAE82BECD30200B66833 /* DecodeError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodeError.swift; sourceTree = "<group>"; };
 		D071974E2BEA3D99004031C8 /* SigninView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninView.swift; sourceTree = "<group>"; };
 		D07197502BEA4685004031C8 /* AvailableUsersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableUsersView.swift; sourceTree = "<group>"; };
 		D07197522BEA8E21004031C8 /* ConversationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationView.swift; sourceTree = "<group>"; };
@@ -69,6 +75,7 @@
 		D01697AB2BE8EBCC0096108C /* NearTalk */ = {
 			isa = PBXGroup;
 			children = (
+				D021AAE52BECD20F00B66833 /* Helpers */,
 				D021AAE02BEBACFB00B66833 /* Models */,
 				D01697C62BE8FA140096108C /* Info.plist */,
 				D01697C12BE8F8B00096108C /* Views */,
@@ -95,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				D01697BC2BE8EE190096108C /* AddBorder.swift */,
+				D021AAE82BECD30200B66833 /* DecodeError.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -107,6 +115,7 @@
 				D07197502BEA4685004031C8 /* AvailableUsersView.swift */,
 				D07197522BEA8E21004031C8 /* ConversationView.swift */,
 				D07197562BEB5019004031C8 /* ComposerView.swift */,
+				D021AAE32BEBBC6600B66833 /* MessageBubble.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -117,6 +126,14 @@
 				D021AAE12BEBAD2A00B66833 /* Message.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		D021AAE52BECD20F00B66833 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				D021AAE62BECD21C00B66833 /* MCPeerIDDecoder.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -190,8 +207,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				D01697C32BE8F8BC0096108C /* PairView.swift in Sources */,
+				D021AAE92BECD30200B66833 /* DecodeError.swift in Sources */,
 				D07197512BEA4685004031C8 /* AvailableUsersView.swift in Sources */,
 				D01697C02BE8F4000096108C /* ChatSession.swift in Sources */,
+				D021AAE72BECD21C00B66833 /* MCPeerIDDecoder.swift in Sources */,
 				D071974F2BEA3D99004031C8 /* SigninView.swift in Sources */,
 				D01697AF2BE8EBCC0096108C /* ContentView.swift in Sources */,
 				D01697BD2BE8EE190096108C /* AddBorder.swift in Sources */,
@@ -199,6 +218,7 @@
 				D021AAE22BEBAD2A00B66833 /* Message.swift in Sources */,
 				D07197532BEA8E21004031C8 /* ConversationView.swift in Sources */,
 				D07197572BEB5019004031C8 /* ComposerView.swift in Sources */,
+				D021AAE42BEBBC6600B66833 /* MessageBubble.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
