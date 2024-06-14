@@ -26,7 +26,7 @@ struct SigninView: View {
             .addBorder(.black, cornerRadius: 12)
             Button {
                 withAnimation {
-                    ChatSession.shared.setup(username: username)
+                    SessionManager.shared.setup(username: username, uuid: nil)
                 }
             } label: {
                 Image(systemName: "arrow.right.circle")

@@ -8,27 +8,32 @@
 import SwiftUI
 
 struct AvailableUsersView: View {
-    @ObservedObject var session = ChatSession.shared
+    @ObservedObject var session = SessionManager.shared
     var body: some View {
-        VStack(alignment: .leading) {
-            Text("Nearby Users")
-                .font(.largeTitle)
-                .padding()
-            List(session.connectedPeers, id: \.self) { peer in
-                NavigationLink(peer.displayName) {
-                    ConversationView(conversationPeer: peer)
+        VStack {
+            Text("Searching for nearby users")
+                .font(.caption)
+                .padding(.top)
+            ProgressView()
+                .padding(.bottom)
+                .progressViewStyle(.circular)
+                .tint(.green)
+            List(Array(session.availablePeers.keys), id: \.self) { peerUUID in
+                if let peerID = session.availablePeers[peerUUID] {
+                    UserCard(
+                        username: peerID.displayName,
+                        uuid: peerUUID,
+                        action: {
+                            session.sendInvite(peerID)
+                        }
+                    )
+                    .transition(.moveAndFade)
+                    .listRowInsets(EdgeInsets())
                 }
             }
-            .listStyle(.grouped)
-            List(session.availablePeers, id: \.self) { peer in
-                Button {
-                    print(peer.displayName)
-                    session.serviceBrowser.invitePeer(peer, to: session.session, withContext: nil, timeout: 30)
-                } label: {
-                    Text("\(peer.displayName)")
-                }
-            }
+            .listStyle(.plain)
         }
+        .navigationTitle("Test")
     }
 }
 

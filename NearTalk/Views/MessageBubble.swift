@@ -30,11 +30,8 @@ struct MessageBubble: View {
     
     var body: some View {
         VStack {
-            Text(self.peerID)
-                .font(.footnote)
             Text(message.message.content)
                 .fixedSize(horizontal: false, vertical: true)
-            //                    .frame(width: min(geometry.size.width * 0.75, 40)) // Set width to 75% of parent width
                 .padding(8) // Add padding around the text
                 .background(bubbleColor) // Background color for the text bubble
                 .foregroundColor(textColor) // Text color

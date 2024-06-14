@@ -11,36 +11,29 @@ import MultipeerConnectivity
 
 struct ContentView: View {
     
-    @ObservedObject var session = ChatSession.shared
+    @ObservedObject var sessionManager = SessionManager.shared
     @State var text: String = ""
+    let defaults = UserDefaults.standard
+
     
+    init() {
+        let username = defaults.string(forKey: "session_username")
+        let uuid = defaults.string(forKey: "session_uuid")
+        if let username = username, let uuid = uuid {
+            SessionManager.shared.setup(username: username, uuid: uuid)
+        }
+    }
+        
     var body: some View {
-        NavigationStack {
-            VStack {
-                if session.isSetup {
-                    VStack {
-                        AvailableUsersView()
-                    }
-                } else {
-                    SigninView()
-                        .transition(.move(edge: .trailing))
-                }
+        VStack {
+            if sessionManager.isSetup {
+                TabsView()
+            } else {
+                SigninView()
+                    .transition(.move(edge: .trailing))
             }
         }
-        .animation(.easeInOut, value: session.isSetup)
-        .alert("Received an invite from \(session.recvdInviteFrom?.displayName ?? "ERR")!", isPresented: $session.recvdInvite) {
-            Button("Accept invite") {
-                if (session.invitationHandler != nil) {
-                    session.invitationHandler!(true, session.session)
-                }
-            }
-            Button("Reject invite") {
-                if (session.invitationHandler != nil) {
-                    session.invitationHandler!(false, nil)
-                }
-            }
-            .addBorder(.blue, cornerRadius: 10)
-        }
+        .animation(.easeInOut, value: sessionManager.isSetup)
     }
 }
 

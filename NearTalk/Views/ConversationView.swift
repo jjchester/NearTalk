@@ -19,7 +19,7 @@ struct ConversationView: View {
         return session.peerID
     }
     private var conversation: [ConversationMessage] {
-        return session.conversations[conversationPeer]?.sorted(by: { a, b in
+        return session.conversations["test"]?.sorted(by: { a, b in
             a.message.timestamp < b.message.timestamp
         }) ?? []
     }
@@ -56,6 +56,7 @@ struct ConversationView: View {
             .padding(.horizontal) // Add horizontal padding to the entire stack
         }
         Spacer()
+            .navigationTitle(conversationPeer.displayName)
         ComposerView(messageText: $text, sendMessageHandler: {
             ChatSession.shared.sendMessage(message: text, receivingPeer: conversationPeer)
         })
