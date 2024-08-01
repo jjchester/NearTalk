@@ -28,6 +28,7 @@
 		D0D371822C137CB80003BADA /* TabsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D371812C137CB80003BADA /* TabsView.swift */; };
 		D0D371842C137DF20003BADA /* ConversationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D371832C137DF20003BADA /* ConversationsView.swift */; };
 		D0D371862C137F4C0003BADA /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D371852C137F4C0003BADA /* SettingsView.swift */; };
+		D0D371882C5BD32D0003BADA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D371872C5BD32D0003BADA /* Constants.swift */; };
 		D0DBF4062C09134D00C277B3 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DBF4052C09134D00C277B3 /* SessionManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +57,7 @@
 		D0D371812C137CB80003BADA /* TabsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabsView.swift; sourceTree = "<group>"; };
 		D0D371832C137DF20003BADA /* ConversationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationsView.swift; sourceTree = "<group>"; };
 		D0D371852C137F4C0003BADA /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		D0D371872C5BD32D0003BADA /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		D0DBF4052C09134D00C277B3 /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -102,6 +104,7 @@
 				D01697BF2BE8F4000096108C /* ChatSession.swift */,
 				D0DBF4052C09134D00C277B3 /* SessionManager.swift */,
 				D0D3717A2C12973B0003BADA /* PeerSession.swift */,
+				D0D371872C5BD32D0003BADA /* Constants.swift */,
 			);
 			path = NearTalk;
 			sourceTree = "<group>";
@@ -246,6 +249,7 @@
 				D021AAE72BECD21C00B66833 /* MCPeerIDDecoder.swift in Sources */,
 				D071974F2BEA3D99004031C8 /* SigninView.swift in Sources */,
 				D01697AF2BE8EBCC0096108C /* ContentView.swift in Sources */,
+				D0D371882C5BD32D0003BADA /* Constants.swift in Sources */,
 				D01697BD2BE8EE190096108C /* AddBorder.swift in Sources */,
 				D01697AD2BE8EBCC0096108C /* NearTalkApp.swift in Sources */,
 				D021AAE22BEBAD2A00B66833 /* Message.swift in Sources */,

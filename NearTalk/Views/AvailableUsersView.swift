@@ -6,9 +6,17 @@
 //
 
 import SwiftUI
+import MultipeerConnectivity
 
 struct AvailableUsersView: View {
-    @ObservedObject var session = SessionManager.shared
+    @ObservedObject var sessionManager = SessionManager.shared
+    
+    private var availablePeers: [String:MCPeerID] {
+        return sessionManager.availablePeers.filter {
+            !sessionManager.uuidIsPaired($0.key)
+        }
+    }
+    
     var body: some View {
         VStack {
             Text("Searching for nearby users")
@@ -18,13 +26,13 @@ struct AvailableUsersView: View {
                 .padding(.bottom)
                 .progressViewStyle(.circular)
                 .tint(.green)
-            List(Array(session.availablePeers.keys), id: \.self) { peerUUID in
-                if let peerID = session.availablePeers[peerUUID] {
+            List(Array(availablePeers.keys), id: \.self) { peerUUID in
+                if let peerID = availablePeers[peerUUID] {
                     UserCard(
                         username: peerID.displayName,
                         uuid: peerUUID,
                         action: {
-                            session.sendInvite(peerID)
+                            sessionManager.sendInvite(peerID)
                         }
                     )
                     .transition(.moveAndFade)

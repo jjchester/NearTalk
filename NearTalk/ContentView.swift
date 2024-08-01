@@ -14,11 +14,10 @@ struct ContentView: View {
     @ObservedObject var sessionManager = SessionManager.shared
     @State var text: String = ""
     let defaults = UserDefaults.standard
-
     
     init() {
-        let username = defaults.string(forKey: "session_username")
-        let uuid = defaults.string(forKey: "session_uuid")
+        let username = defaults.string(forKey: Constants.SESSION_USERNAME)
+        let uuid = defaults.string(forKey: Constants.SESSION_UUID)
         if let username = username, let uuid = uuid {
             SessionManager.shared.setup(username: username, uuid: uuid)
         }
