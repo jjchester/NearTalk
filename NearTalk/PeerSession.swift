@@ -8,6 +8,7 @@ class PeerSession: NSObject, MCSessionDelegate, ObservableObject {
     var pairedPeer: MCPeerID?
     var pairedPeerUUID: String?
     weak var delegate: PeerSessionDelegate?
+    @Published var messages: [String:Message] = [:] // UUID : Message
     
     init(peerID: MCPeerID, uuid: String) {
         self.peerID = peerID
@@ -17,19 +18,26 @@ class PeerSession: NSObject, MCSessionDelegate, ObservableObject {
         self.session.delegate = self
     }
     
+    private func loadMessages() {
+        // load from swiftdata storage?
+    }
+    
     func sendMessage(_ message: Message) {
         do {
             guard let pairedPeer = self.pairedPeer, let encodedMessage = encodeMessage(message) else { return }
             try session.send(encodedMessage, toPeers: [pairedPeer], with: .reliable)
+            if message.type == .text {
+                self.messages[message.uuid] = message
+            }
         } catch {
             print("Failed to send message to peer.")
         }
     }
     
-    func sendConnectionAcknowledgement() {
+    func sendConnectionHandshake() {
         do {
             guard let pairedPeer = self.pairedPeer else { return } // need to handle else more gracefully
-            let message = Message(type: .acknowledgement, data: [Constants.UUID: self.uuid])
+            let message = Message(type: .handshake, data: [Constants.UUID: self.uuid], senderUuid: self.uuid)
             if let encodedMessage = encodeMessage(message) {
                 try session.send(encodedMessage, toPeers: [pairedPeer], with: .reliable)
             }
@@ -53,7 +61,7 @@ class PeerSession: NSObject, MCSessionDelegate, ObservableObject {
             delegate?.connectChatSession(for: self)
             delegate?.removePendingInvite(for: self)
             self.pairedPeer = peerID
-            self.sendConnectionAcknowledgement()
+            self.sendConnectionHandshake()
             break
         default:
             // Peer connecting or something else
@@ -67,22 +75,35 @@ class PeerSession: NSObject, MCSessionDelegate, ObservableObject {
     
     func handleMessage(_ message: Message) {
         switch message.type {
-        case .acknowledgement:
+        case .handshake:
             if let uuid = message.data[Constants.UUID] {
-                print("Received UUID: \(uuid)")
+                print("Received acknowledgement from UUID: \(uuid)")
                 self.pairedPeerUUID = uuid
                 delegate?.removePeerFromSearch(for: uuid)
                 delegate?.saveConnectedPeer(for: uuid)
             }
         case .disconnect:
-            if let disconnect = message.data[Constants.DISCONNECT] {
-                print("Received disconnect")
+            if let _ = message.data[Constants.DISCONNECT] {
+                print("Received disconnect from \(self.pairedPeerUUID ?? "")")
                 delegate?.removeSavedPeer(for: self.pairedPeerUUID ?? "")
                 delegate?.disconnectChatSession(for: self)
             }
         case .text:
-                if let text = message.data[Constants.TEXT] {
+            if let text = message.data[Constants.TEXT] {
                 print("Received Text: \(text)")
+                let acknowledgementMessage = Message(type: .acknowledgement, data: [Constants.UUID:message.uuid], senderUuid: self.uuid)
+                sendMessage(acknowledgementMessage)
+                DispatchQueue.main.async {
+                    self.messages[message.uuid] = message
+                    self.messages[message.uuid]?.status = .acknowledged
+                }
+            }
+        case .acknowledgement:
+            if let uuid = message.data[Constants.UUID] {
+                print("Received acknowledgement for message with UUID \(uuid)")
+                DispatchQueue.main.async {
+                    self.messages[uuid]?.status = .acknowledged
+                }
             }
         }
     }
@@ -111,15 +132,32 @@ extension PeerSession {
     // Encode a Message to Data
     func encodeMessage(_ message: Message) -> Data? {
         let encoder = JSONEncoder()
-        return try? encoder.encode(message)
+        do {
+            let message = try encoder.encode(message)
+            return message
+        } catch {
+            print("Failed to encode outgoing message with UUID: \(message.uuid)")
+            return nil
+        }
     }
 
     // Decode Data to a Message
     func decodeMessage(_ data: Data) -> Message? {
         let decoder = JSONDecoder()
-        return try? decoder.decode(Message.self, from: data)
+        do {
+            let message = try decoder.decode(Message.self, from: data)
+            return message
+        } catch {
+            print("Failed to decode incoming message")
+            return nil
+        }
     }
 
+    func syncMessages() async {
+        // some kind of job that takes the union of both sesssions' messages in case of desync and then publishes?
+        // I think better than intersecting and potentially losing messages
+        // Needs to be batched by timestamp, maybe some other scaling techniques
+    }
 }
 
 protocol PeerSessionDelegate: AnyObject {

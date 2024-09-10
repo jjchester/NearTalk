@@ -29,6 +29,7 @@
 		D0D371842C137DF20003BADA /* ConversationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D371832C137DF20003BADA /* ConversationsView.swift */; };
 		D0D371862C137F4C0003BADA /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D371852C137F4C0003BADA /* SettingsView.swift */; };
 		D0D371882C5BD32D0003BADA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D371872C5BD32D0003BADA /* Constants.swift */; };
+		D0D3718A2C5C1BDE0003BADA /* ConversationTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D371892C5C1BDE0003BADA /* ConversationTile.swift */; };
 		D0DBF4062C09134D00C277B3 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DBF4052C09134D00C277B3 /* SessionManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +59,7 @@
 		D0D371832C137DF20003BADA /* ConversationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationsView.swift; sourceTree = "<group>"; };
 		D0D371852C137F4C0003BADA /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		D0D371872C5BD32D0003BADA /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		D0D371892C5C1BDE0003BADA /* ConversationTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationTile.swift; sourceTree = "<group>"; };
 		D0DBF4052C09134D00C277B3 /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -134,10 +136,10 @@
 				D071974E2BEA3D99004031C8 /* SigninView.swift */,
 				D07197502BEA4685004031C8 /* AvailableUsersView.swift */,
 				D07197522BEA8E21004031C8 /* ConversationView.swift */,
+				D0D371832C137DF20003BADA /* ConversationsView.swift */,
 				D07197562BEB5019004031C8 /* ComposerView.swift */,
 				D021AAE32BEBBC6600B66833 /* MessageBubble.swift */,
 				D0D371812C137CB80003BADA /* TabsView.swift */,
-				D0D371832C137DF20003BADA /* ConversationsView.swift */,
 				D0D371852C137F4C0003BADA /* SettingsView.swift */,
 			);
 			path = Views;
@@ -164,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				D0D3717D2C12B0120003BADA /* UserCard.swift */,
+				D0D371892C5C1BDE0003BADA /* ConversationTile.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -256,6 +259,7 @@
 				D048F4CD2BF09B6A00898CA3 /* InvitationContext.swift in Sources */,
 				D07197532BEA8E21004031C8 /* ConversationView.swift in Sources */,
 				D0D3717B2C12973B0003BADA /* PeerSession.swift in Sources */,
+				D0D3718A2C5C1BDE0003BADA /* ConversationTile.swift in Sources */,
 				D0D371802C12BB920003BADA /* AnyTransition.swift in Sources */,
 				D07197572BEB5019004031C8 /* ComposerView.swift in Sources */,
 				D021AAE42BEBBC6600B66833 /* MessageBubble.swift in Sources */,

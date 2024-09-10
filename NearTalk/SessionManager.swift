@@ -9,10 +9,10 @@ class SessionManager: NSObject, ObservableObject {
     }
     
     static let shared = SessionManager()
-//    private var sessions: [MCPeerID: PeerSession] = [:]
-//    private var knownUUIDs: Set<String> = []
+    //    private var sessions: [MCPeerID: PeerSession] = [:]
+    //    private var knownUUIDs: Set<String> = []
     private var pendingInvites: [PeerSession: Timer] = [:]
-
+    
     private let serviceType = "neartalk"
     private let defaults = UserDefaults.standard
     private lazy var username: String = ""
@@ -28,7 +28,7 @@ class SessionManager: NSObject, ObservableObject {
     @Published var pairedSessions: [PeerSession: SessionStatus] = [:]
     @Published var availablePeers: [String: MCPeerID] = [:] // Peers that are available to connect with but not currently paired
     @Published var savedPeers: Set<String> = [] // Peers that have been paired with but may not necessarily have an active connection
-                                                // Peers that are paired and have an active connection can be accessed through the session object
+    // Peers that are paired and have an active connection can be accessed through the session object
     @Published var recvdInvite: Bool = false
     @Published var recvdInviteFrom: MCPeerID? = nil
     @Published var invitationHandler: ((Bool, MCSession?) -> Void)?
@@ -36,7 +36,7 @@ class SessionManager: NSObject, ObservableObject {
     @Published var isSetup: Bool = false
     
     public lazy var peerID = MCPeerID(displayName: username)
-
+    
     public lazy var serviceAdvertiser: MCNearbyServiceAdvertiser = {
         let advertiser = MCNearbyServiceAdvertiser(peer: peerID, discoveryInfo: discoveryInfo, serviceType: serviceType)
         advertiser.delegate = self
@@ -48,7 +48,7 @@ class SessionManager: NSObject, ObservableObject {
         browser.delegate = self
         return browser
     }()
-        
+    
     public func setup(username: String, uuid: String?) {
         let uuid = uuid ?? UUID().uuidString
         
@@ -65,7 +65,7 @@ class SessionManager: NSObject, ObservableObject {
             print("Discovered saved peers: \(peers)")
             self.savedPeers = Set(peers)
         }
-
+        
         defaults.setValue(username, forKey: Constants.SESSION_USERNAME)
         defaults.setValue(uuid, forKey: Constants.SESSION_UUID)
         
@@ -75,7 +75,6 @@ class SessionManager: NSObject, ObservableObject {
     
     public func resetSessionDetails() {
         DispatchQueue.main.async {
-            self.savedPeers = []
             self.username = ""
             self.uuid = ""
             self.discoveryInfo = [:]
@@ -84,13 +83,13 @@ class SessionManager: NSObject, ObservableObject {
                 session.session.disconnect()
             }
             self.pairedSessions = [:]
+            self.savedPeers = []
+            self.defaults.removeObject(forKey: Constants.SESSION_USERNAME)
+            self.defaults.removeObject(forKey: Constants.SESSION_UUID)
+            self.defaults.removeObject(forKey: Constants.SAVED_PEERS)
+            self.stopAdvertisingAndBrowsing()
+            self.isSetup = false
         }
-        defaults.removeObject(forKey: Constants.SESSION_USERNAME)
-        defaults.removeObject(forKey: Constants.SESSION_UUID)
-        defaults.removeObject(forKey: Constants.SAVED_PEERS)
-        stopAdvertisingAndBrowsing()
-        
-        self.isSetup = false
     }
     
     private func stopAdvertisingAndBrowsing() {
@@ -173,10 +172,8 @@ class SessionManager: NSObject, ObservableObject {
     }
     
     func removePeerID(peerID: MCPeerID) {
-        // Find the key associated with the given MCPeerID
         if let key = self.availablePeers.first(where: { $0.value == peerID })?.key {
-            // Remove the entry from the dictionary using the found key
-            DispatchQueue.main.async {
+            DispatchQueue.main.async(qos: .userInitiated) {
                 withAnimation {
                     _ = self.availablePeers.removeValue(forKey: key)
                 }
@@ -185,10 +182,10 @@ class SessionManager: NSObject, ObservableObject {
     }
     
     func removePeerSession(_ session: PeerSession) {
-        DispatchQueue.main.async {
+        DispatchQueue.main.async(qos: .userInitiated) {
             withAnimation {
                 self.unsavePeer(for: session.pairedPeerUUID ?? "")
-                session.sendMessage(Message(type: .disconnect, data: [Constants.DISCONNECT:""]))
+                session.sendMessage(Message(type: .disconnect, data: [Constants.DISCONNECT:""], senderUuid: session.uuid))
                 _ = self.pairedSessions.removeValue(forKey: session)
             }
         }
@@ -199,20 +196,20 @@ class SessionManager: NSObject, ObservableObject {
     }
     
     func addPendingSession(_ session: PeerSession) {
-        DispatchQueue.main.async {
+        DispatchQueue.main.async(qos: .userInitiated) {
             self.pendingSessions.append(session)
         }
     }
     
     func savePeer(for uuid: String) {
-        DispatchQueue.main.async {
+        DispatchQueue.main.async(qos: .userInitiated) {
             self.savedPeers.insert(uuid);
             self.defaults.set(Array(self.savedPeers), forKey: Constants.SAVED_PEERS)
         }
     }
     
     func unsavePeer(for uuid: String) {
-        DispatchQueue.main.async {
+        DispatchQueue.main.async(qos: .userInitiated) {
             self.savedPeers.remove(uuid);
             self.defaults.set(Array(self.savedPeers), forKey: Constants.SAVED_PEERS)
         }
@@ -281,7 +278,7 @@ extension SessionManager: PeerSessionDelegate {
     
     func removePendingInvite(for session: PeerSession) {
         guard self.pendingInvites[session] != nil else { return }
-        DispatchQueue.main.async {
+        DispatchQueue.main.async(qos: .userInitiated) {
             self.pendingInvites[session]?.invalidate()
             self.pendingInvites.removeValue(forKey: session)
         }
@@ -289,19 +286,19 @@ extension SessionManager: PeerSessionDelegate {
     
     func connectChatSession(for session: PeerSession) {
         guard !self.pairedUUIDs.contains(session.uuid) else { return }
-        DispatchQueue.main.async {
+        DispatchQueue.main.async(qos: .userInitiated) {
             self.pairedSessions[session] = .connected
         }
     }
     
     func disconnectChatSession(for session: PeerSession) {
-        DispatchQueue.main.async {
+        DispatchQueue.main.async(qos: .userInitiated) {
             self.pairedSessions.removeValue(forKey: session)
         }
     }
     
     func removePeerFromSearch(for uuid: String) {
-        DispatchQueue.main.async {
+        DispatchQueue.main.async(qos: .userInitiated) {
             withAnimation(.easeInOut) {
                 _ = self.availablePeers.removeValue(forKey: uuid)
             }
