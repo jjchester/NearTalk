@@ -23,26 +23,24 @@ struct ConversationView: View {
     var body: some View {
         ScrollView {
             LazyVStack(spacing: 8) {
-                ForEach(Array(peerSession.messages.keys), id: \.self) { uuid in
+                ForEach(Array(peerSession.messages.values).sorted(by: { $0.timeCreated < $1.timeCreated }), id: \.self) { message in
                     Text("")
                     HStack {
-                        if let message = peerSession.messages[uuid] {
-                            let isSender = message.senderUuid == peerSession.uuid
-                            if isSender {
-                                Spacer()
-                            }
-                            MessageBubble(message: message, selfUuid: peerSession.uuid)
-                                .alignmentGuide(.leading) { _ in
-                                    if isSender{
-                                        return 0 // Align to leading edge
-                                    } else {
-                                        return -1000 // Align to trailing edge (offscreen)
-                                    }
+                        let isSender = message.senderUuid == peerSession.uuid
+                        if isSender {
+                            Spacer()
+                        }
+                        MessageBubble(message: message, selfUuid: peerSession.uuid)
+                            .alignmentGuide(.leading) { _ in
+                                if isSender{
+                                    return 0 // Align to leading edge
+                                } else {
+                                    return -1000 // Align to trailing edge (offscreen)
                                 }
-                                .padding( isSender ? [.leading] : [.trailing], 40)
-                            if !isSender {
-                                Spacer()
                             }
+                            .padding( isSender ? [.leading] : [.trailing], 40)
+                        if !isSender {
+                            Spacer()
                         }
                     }
                 }
